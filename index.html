@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Игра 2048</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="2058.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1 class="title">2048</h1>
+
+      <div class="header__info">
+        <div class="score">
+          <span class="score__label">Очки:</span>
+          <span id="score" class="score__value">0</span>
+        </div>
+
+        <div class="header__buttons">
+          <button id="newGameBtn" class="btn">Новая игра</button>
+          <button id="undoBtn" class="btn btn--secondary">Отменить ход</button>
+          <button id="leaderboardBtn" class="btn btn--secondary">Рекорды</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="game-wrapper">
+        <div id="gameBoard" class="game-board"></div>
+        <div id="gameOverOverlay" class="overlay">
+          <div class="overlay__content">
+            <p id="gameOverMessage" class="overlay__message">
+              Игра окончена. Введите имя, чтобы сохранить результат.
+            </p>
+
+            <input
+              id="playerName"
+              type="text"
+              class="overlay__input"
+              placeholder="Ваше имя"
+            >
+
+            <div class="overlay__buttons">
+              <button id="saveResultBtn" class="btn">Сохранить результат</button>
+              <button id="restartBtn" class="btn btn--secondary">Начать заново</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="controls" class="controls controls--hidden">
+        <button
+          class="controls__btn controls__btn--up"
+          data-direction="up"
+        >
+          ▲
+        </button>
+        <button
+          class="controls__btn controls__btn--left"
+          data-direction="left"
+        >
+          ◀
+        </button>
+        <button
+          class="controls__btn controls__btn--right"
+          data-direction="right"
+        >
+          ▶
+        </button>
+        <button
+          class="controls__btn controls__btn--down"
+          data-direction="down"
+        >
+          ▼
+        </button>
+      </div>
+    </main>
+
+    <div id="leaderboardModal" class="modal">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h2 class="modal__title">Таблица рекордов</h2>
+          <button
+            id="closeLeaderboardBtn"
+            class="modal__close"
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+        </div>
+
+        <table class="leaderboard">
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Очки</th>
+              <th>Дата</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
